@@ -15,11 +15,17 @@ public:
 };
 
 void number::select(int big,int small){				//select the numbers as per required
-	if(!isValidInputs(big,small)){
+	if(!isValidInputs(big,small)){		
 		std::cout<<"Invalid numbers asked";
+		std::cout<<"\n\n";
+		system("pause");
+		system("exit");
+
 	}
 
 	std::cout<<"\nGenerating "<<big<<" big and "<<small<<" small numbers";
+	Sleep(1000);
+
 	srand(time(NULL));
 	for(int a=0;a<big;a++){							//select big numbers
 		int random=rand()%4+9;
@@ -71,5 +77,6 @@ void number::display(){
 	std::cout<<"\n\n";
 	for(int a=0;a<6;a++){
 		std::cout<<finalNumbers[a]<<"\t";
+		Sleep(500);
 	}
 }

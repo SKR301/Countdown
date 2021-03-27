@@ -16,7 +16,7 @@ int main(){
 
 	std::cout<<"\n\nNumber to get: \t["<<N.genNumber()<<"]";
 
-	N.timer(10);		//given time in secs (cannot be less than 5)
+	N.timer(60);		//given time in secs (cannot be less than 5)
 
 	std::cout<<"\n\n";
 	system("pause");
