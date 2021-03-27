@@ -27,7 +27,7 @@ void number::select(int big,int small){				//select the numbers as per required
 	}
 
 	for(int a=0;a<small;a++){							//select small numbers
-		int random=rand()%10;
+		int random=rand()%9;
 		finalNumbers.push_back(possible[random]);
 	}					
 }
