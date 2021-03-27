@@ -30,7 +30,7 @@ A basic game version of famous TV show "Countdown". A game all about Letters, Nu
 - Rest will be *consonants*.
 - You'll be given 60secs to come up with the longest possible word you can.
 
-[Numebrs]
+[Numbers]
 - Select  numbers of *big numbers* you want [0to4].
 - Rest will be *small numbers*.
 - You will be given a *random number* too.
