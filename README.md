@@ -39,7 +39,7 @@ A basic game version of famous TV show "Countdown". A game all about Letters, Nu
 ## Screenshots
 Some screenshots of the program:-
 - *Letters*<br />
-![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/letters.png)
+![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/letter.png)
 - *Numbers*<br />
 ![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/number.png)
 
