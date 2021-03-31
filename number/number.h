@@ -1,29 +1,37 @@
 /*PLAY THE NUMEBR GAME OF COUNTDOWN*/
 
+#include<windows.h>
+#include "../logger/logger.h"
 
 class number
 {
 private:
 	std::vector<int>finalNumbers;
 	int possible[13]={1,2,3,4,5,6,7,8,9,25,50,75,100};
+	logger l;
 public:
 	void select(int,int);
 	bool isValidInputs(int,int);
 	void display();
-	int genNumber();
+	void genNumber();
 	void timer(int);
 };
 
 void number::select(int big,int small){				//select the numbers as per required
-	if(!isValidInputs(big,small)){		
-		std::cout<<"Invalid numbers asked";
-		std::cout<<"\n\n";
+	if(!isValidInputs(big,small)){
+		// std::cout<<"Invalid numbers asked";
+		l.log("Invalid numbers asked","red");
+		l.log("\n\n");
 		system("pause");
 		system("exit");
-
 	}
 
-	std::cout<<"\nGenerating "<<big<<" big and "<<small<<" small numbers";
+	// std::cout<<"\nGenerating "<<big<<" big and "<<small<<" small numbers";
+	l.log("\nGenerating ","green");
+	l.log(std::to_string(big),"yellow");
+	l.log(" big and ","green");
+	l.log(std::to_string(small),"yellow");
+	l.log(" small numbers","green");
 	Sleep(1000);
 
 	srand(time(NULL));
@@ -51,32 +59,37 @@ bool number::isValidInputs(int big,int small){			//check if requested numbers ar
 	return true;		
 }
 
-int number::genNumber(){					//generate final number
+void number::genNumber(){					//generate final number
 	srand(time(NULL));
-	return (rand()%899+100);
+	l.log("\n\nNumber to get: \t[");
+	l.log(std::to_string(rand()%899+100),"blue");
+	l.log("]");
+	return ;
 }
 
 void number::timer(int time){				//start the timer in mili()
-	std::cout<<"\n\n\nYour got "<<time<<" secs!!! STARTS NOW:";
+	// std::cout<<"\n\n\nYour got "<<time<<" secs!!! STARTS NOW:";
+	l.log("\n\n\nYour got "+std::to_string(time)+" secs!!! STARTS NOW:","yellow");
 
 	Sleep((time-5)*1000);
-	std::cout<<"\n\n5";
+	l.log("\n\n5","yellow");
 	Sleep(1000);
-	std::cout<<"\n4";
+	l.log("\n\n4","yellow");
 	Sleep(1000);
-	std::cout<<"\n3";
+	l.log("\n\n3","yellow");
 	Sleep(1000);
-	std::cout<<"\n2";
+	l.log("\n\n2","yellow");
 	Sleep(1000);
-	std::cout<<"\n1";
+	l.log("\n\n1","yellow");
 	Sleep(1000);
-	std::cout<<"\n\n!!!!!!!!STOP!!!!!!!!";
+	l.log("\n\n-----------------STOP-----------------");
 }
 
 void number::display(){
 	std::cout<<"\n\n";
 	for(int a=0;a<6;a++){
-		std::cout<<finalNumbers[a]<<"\t";
+		// std::cout<<finalNumbers[a]<<"\t";
+		l.log("    "+std::to_string(finalNumbers[a])+"    ","red");
 		Sleep(500);
 	}
 }

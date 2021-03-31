@@ -1,10 +1,13 @@
 /*PLAY THE LETTERS GAME OF COUNTDOWN*/
-
+#include<windows.h>
+#include<algorithm>
+#include "../logger/logger.h"
 
 class letter
 {
 private:
 	std::vector<char> letterList;
+	logger l;
 public:
 	void select(int,int);
 	bool isValidInputs(int,int);
@@ -15,13 +18,20 @@ public:
 
 void letter::select(int vowel,int consonant){				//select the letters as per required
 	if(!isValidInputs(vowel,consonant)){
-		std::cout<<"Invalid letters asked";
-		std::cout<<"\n\n";
+		// std::cout<<"Invalid letters asked";
+		l.log("Invalid letters asked","red");
+		l.log("\n\n");
 		system("pause");
 		system("exit");
 	}
 
-	std::cout<<"\nGenerating "<<vowel<<" vowels and "<<consonant<<" consonants";
+	// std::cout<<"\nGenerating "<<vowel<<" vowels and "<<consonant<<" consonants";
+	l.log("\nGenerating ","green");
+	l.log(std::to_string(vowel),"yellow");
+	l.log(" vowels and ","green");
+	l.log(std::to_string(consonant),"yellow");
+	l.log(" consonants","green");
+
 	Sleep(1000);
 
 	srand(time(NULL));
@@ -62,35 +72,35 @@ bool letter::isValidInputs(int vowel,int consonant){			//check if requested lett
 }
 
 void letter::timer(int time){				//start the timer in mili()
-	std::cout<<"\n\n\nYour got "<<time<<" secs!!! STARTS NOW:";
+	// std::cout<<"\n\n\nYour got "<<time<<" secs!!! STARTS NOW:";
+	l.log("\n\n\nYour got "+std::to_string(time)+" secs!!! STARTS NOW:","yellow");
 
 	Sleep((time-5)*1000);
-	std::cout<<"\n\n5";
+	l.log("\n\n5","yellow");
 	Sleep(1000);
-	std::cout<<"\n4";
+	l.log("\n\n4","yellow");
 	Sleep(1000);
-	std::cout<<"\n3";
+	l.log("\n\n3","yellow");
 	Sleep(1000);
-	std::cout<<"\n2";
+	l.log("\n\n2","yellow");
 	Sleep(1000);
-	std::cout<<"\n1";
+	l.log("\n\n1","yellow");
 	Sleep(1000);
-	std::cout<<"\n\n!!!!!!!!STOP!!!!!!!!";
+	l.log("\n\n-----------------STOP-----------------");
 }
 
 void letter::shuffleLetterList(){
 	for(int a=0;a<9;a++){
 		int b = a + rand() % (letterList.size() - a);
-      	// swap(letterList[a], letterList[b]);
-
 		iter_swap(letterList.begin() + a, letterList.begin() + b);
 	}
 }
 
 void letter::display(){
-	std::cout<<"\n\n";
+	l.log("\n\n");
 	for(int a=0;a<9;a++){
-		std::cout<<letterList[a]<<"\t";
+		std::string s(1,letterList[a]);
+		l.log("    "+s+"    ","red");
 		Sleep(500);
 	}
 }
