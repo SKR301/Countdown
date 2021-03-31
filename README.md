@@ -41,7 +41,7 @@ Some screenshots of the program:-
 - *Letters*<br />
 ![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/letters.png)
 - *Numbers*<br />
-![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/numbers.png)
+![Letters](https://github.com/SKR301/Countdown/blob/main/Screenshots/number.png)
 
 
 ## Contributors
